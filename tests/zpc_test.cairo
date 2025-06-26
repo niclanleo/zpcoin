@@ -1,6 +1,9 @@
+// SPDX-License-Identifier: MIT
 use snforge_std::{declare, ContractClassTrait, DeclareResultTrait, start_cheat_caller_address_global};
 use starknet::{ContractAddress, contract_address_try_from_felt252};
-use openzeppelin::token::erc20::interface::{IERC20Dispatcher, IERC20DispatcherTrait, IERC20MetadataDispatcher, IERC20MetadataDispatcherTrait};
+use openzeppelin::token::erc20::interface::{
+    IERC20Dispatcher, IERC20DispatcherTrait, IERC20MetadataDispatcher, IERC20MetadataDispatcherTrait
+};
 use core::result::ResultTrait;
 
 #[test]
@@ -9,8 +12,8 @@ fn test_initial_supply() {
     let contract = declared.contract_class();
     let owner: ContractAddress = contract_address_try_from_felt252(0x123).unwrap();
     
-    start_cheat_caller_address_global(owner);
-    let (contract_address, _) = contract.deploy(@array![]).unwrap();
+    // 傳入 owner 地址作為 constructor 參數
+    let (contract_address, _) = contract.deploy(@array![owner.into()]).unwrap();
     let dispatcher = IERC20Dispatcher { contract_address };
     
     let total_supply: u256 = 88888888_000000000000000000_u256;
@@ -25,10 +28,11 @@ fn test_transfer() {
     let owner: ContractAddress = contract_address_try_from_felt252(0x123).unwrap();
     let recipient: ContractAddress = contract_address_try_from_felt252(0x456).unwrap();
     
-    start_cheat_caller_address_global(owner);
-    let (contract_address, _) = contract.deploy(@array![]).unwrap();
+    // 傳入 owner 地址作為 constructor 參數
+    let (contract_address, _) = contract.deploy(@array![owner.into()]).unwrap();
     let dispatcher = IERC20Dispatcher { contract_address };
     
+    start_cheat_caller_address_global(owner);
     let amount: u256 = 1000000_000000000000000000_u256;
     dispatcher.transfer(recipient, amount);
     
@@ -45,10 +49,11 @@ fn test_approve_and_transfer_from() {
     let spender: ContractAddress = contract_address_try_from_felt252(0x456).unwrap();
     let recipient: ContractAddress = contract_address_try_from_felt252(0x789).unwrap();
     
-    start_cheat_caller_address_global(owner);
-    let (contract_address, _) = contract.deploy(@array![]).unwrap();
+    // 傳入 owner 地址作為 constructor 參數
+    let (contract_address, _) = contract.deploy(@array![owner.into()]).unwrap();
     let dispatcher = IERC20Dispatcher { contract_address };
     
+    start_cheat_caller_address_global(owner);
     let amount: u256 = 1000000_000000000000000000_u256;
     dispatcher.approve(spender, amount);
     assert(dispatcher.allowance(owner, spender) == amount, 'Invalid allowance');
@@ -69,10 +74,11 @@ fn test_transfer_exceeds_balance() {
     let owner: ContractAddress = contract_address_try_from_felt252(0x123).unwrap();
     let recipient: ContractAddress = contract_address_try_from_felt252(0x456).unwrap();
     
-    start_cheat_caller_address_global(owner);
-    let (contract_address, _) = contract.deploy(@array![]).unwrap();
+    // 傳入 owner 地址作為 constructor 參數
+    let (contract_address, _) = contract.deploy(@array![owner.into()]).unwrap();
     let dispatcher = IERC20Dispatcher { contract_address };
     
+    start_cheat_caller_address_global(owner);
     let amount: u256 = 88888888_000000000000000000_u256 + 1;
     dispatcher.transfer(recipient, amount);
 }
@@ -83,8 +89,8 @@ fn test_metadata() {
     let contract = declared.contract_class();
     let owner: ContractAddress = contract_address_try_from_felt252(0x123).unwrap();
     
-    start_cheat_caller_address_global(owner);
-    let (contract_address, _) = contract.deploy(@array![]).unwrap();
+    // 傳入 owner 地址作為 constructor 參數
+    let (contract_address, _) = contract.deploy(@array![owner.into()]).unwrap();
     let dispatcher = IERC20MetadataDispatcher { contract_address };
     
     assert(dispatcher.name() == "ZPC", 'Invalid name');
