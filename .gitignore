@@ -1,0 +1,39 @@
+target
+.snfoundry_cache/
+snfoundry_trace/
+coverage/
+profile/
+
+# Cairo build artifacts
+target/
+build/
+out/
+.cairo_cache/
+
+# Scarb lock file (optional: 保留可幫助復現，但開發中可忽略)
+Scarb.lock
+
+# Forge generated test artifacts
+snforge_output/
+
+# VSCode local settings
+.vscode/
+
+# macOS
+.DS_Store
+
+# Node.js (若用於前端整合)
+node_modules/
+dist/
+
+# Logs
+*.log
+
+# Wallet private keys (你若有用 .env 或 secrets)
+.env
+*.pem
+*.key
+
+# Git submodules 或測試用暫存資料夾（視專案需要）
+contract-artifacts/
+tests_output/
