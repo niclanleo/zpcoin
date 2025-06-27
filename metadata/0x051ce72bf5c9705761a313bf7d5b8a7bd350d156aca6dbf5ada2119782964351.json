@@ -1,0 +1,8 @@
+{
+  "name": "Zero Proof Coin",
+  "address": "0x051ce72bf5c9705761a313bf7d5b8a7bd350d156aca6dbf5ada2119782964351",
+  "symbol": "ZPC",
+  "decimals": 18,
+  "logo_uri": "https://github.com/niclanleo/zpcoin/blob/main/metadata/logos/mainnet/0x051ce72bf5c9705761a313bf7d5b8a7bd350d156aca6dbf5ada2119782964351.png?raw=true",
+  "tags": ["erc20"]
+}
