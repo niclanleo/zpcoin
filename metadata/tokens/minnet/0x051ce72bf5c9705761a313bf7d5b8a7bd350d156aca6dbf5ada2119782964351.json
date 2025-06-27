@@ -1,0 +1,15 @@
+{
+  "name": "Zero Proof Coin",
+  "symbol": "ZPC",
+  "decimals": 18,
+  "address": "0x051ce72bf5c9705761a313bf7d5b8a7bd350d156aca6dbf5ada2119782964351",
+  "logo_uri": "ipfs://YOUR_LOGO_CID",
+  "tags": ["erc20"],
+  "extensions": {
+    "coingecko_id": "",
+    "description": "ZPC is a zero-knowledge proof token on Starknet with limited supply.",
+    "website": "https://github.com/niclanleo/zpcoin",
+    "twitter": "",
+    "documentation": ""
+  }
+}
