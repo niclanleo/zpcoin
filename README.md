@@ -14,6 +14,16 @@
 其底層語言 **Cairo** 是一種可證明、可驗證的語言，  
 特別適合開發具有 **零知識證明能力（ZKP）** 的應用與智能合約。
 
+```
+{
+    "name": "Zero Proof Coin",
+    "address": "0x051ce72bf5c9705761a313bf7d5b8a7bd350d156aca6dbf5ada2119782964351",
+    "symbol": "ZPC",
+    "decimals": 18,
+    "logo_uri": "https://github.com/niclanleo/zpcoin/blob/main/metadata/logos/mainnet/0x051ce72bf5c9705761a313bf7d5b8a7bd350d156aca6dbf5ada2119782964351.png?raw=true"
+    }
+```
+
 ---
 
 ### 為什麼選擇在 Starknet 上開發代幣？
